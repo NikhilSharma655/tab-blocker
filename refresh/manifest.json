@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Single Tab Enforcer",
+  "version": "1.0",
+  "description": "Allows only one tab for the site and refreshes it every minute .",
+  "permissions": ["tabs", "scripting"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://fms.think7.in/Login.aspx"],
+      "js": ["content.js"]
+    }
+  ],
+  "host_permissions": [
+    "*://your-site.com/*"
+  ],
+  "action": {
+    "default_title": "Single Tab Active"
+  }
+}
